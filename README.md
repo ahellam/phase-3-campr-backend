@@ -1,46 +1,30 @@
 # Phase 3 Project Guidelines
-
-## Learning Goals
-
-- Build a web basic API with Sinatra and Active Record to support a React
-  frontend
+# Camp'r: A camping reservation database
 
 ## Introduction
 
-Congrats on getting through all the material for Phase 3! Now's the time to put
-it all together and build something from scratch to reinforce what you know and
-expand your horizons.
+Camp'r_Backend is an API to allow campers and campground owners create/take in reservations.
 
 The focus of this project is **building a Sinatra API backend** that uses
 **Active Record** to access and persist data in a database, which will be used
 by a separate **React frontend** that interacts with the database via the API.
 
+## Model
+![image](https://user-images.githubusercontent.com/37206824/163840639-f69d4709-1eea-45bd-9935-432d3ce3c9c6.png)
+
 ## Requirements
-
-For this project, you must:
-
-- Use Active Record to interact with a database.
-- Have at least two models with a one-to-many relationship.
-- At a minimum, set up the following API routes in Sinatra:
-  - create and read actions for both models
-  - full CRUD capability for one of the models
-- Build a separate React frontend application that interacts with the API to
-  perform CRUD actions.
-- Use good OO design patterns. You should have separate classes for each of your
-  models, and create instance and class methods as necessary.
 
 For example, build a todo list application with a React frontend interface and a
 Sinatra backend API, where a user can:
 
-- **Create** a new todo
-- **Read** a list of all todos
-- **Update** an individual todo
-- **Delete** a todo
+- **Create** a new camping reservation
+- **Read** a list of all available campsites
+- **Update** an individual reservation
+- **Delete** a reservation
 
-A `Todo` can be tagged with a `Category`, so that each todo _belongs to_ a
-category and each category _has many_ todos.
+A `User` can make a reservation to a campground which _has_many_ campsites. A Campground _has_many_ reservations as well as a User _has_many_ Reservations. A Reservation _belongs to a User and a Campground
 
-## Getting Started
+## Getting Started: Supplementary Instructions
 
 ### Backend Setup
 
