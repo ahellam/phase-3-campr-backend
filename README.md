@@ -10,7 +10,11 @@ The focus of this project is **building a Sinatra API backend** that uses
 by a separate **React frontend** that interacts with the database via the API.
 
 ## Model
-![image](https://user-images.githubusercontent.com/37206824/163840639-f69d4709-1eea-45bd-9935-432d3ce3c9c6.png)
+![image](https://user-images.githubusercontent.com/37206824/163882701-40f52e53-5359-4128-801d-33d18e00e20d.png)
+
+### Class Diagram
+[Camp'r UML Class Diagram (1).pdf](https://github.com/ahellam/phase-3-campr-backend/files/8508320/Camp.r.UML.Class.Diagram.1.pdf)
+
 
 ## Requirements
 
