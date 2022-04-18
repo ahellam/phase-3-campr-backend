@@ -13,7 +13,7 @@ by a separate **React frontend** that interacts with the database via the API.
 ![image](https://user-images.githubusercontent.com/37206824/163882701-40f52e53-5359-4128-801d-33d18e00e20d.png)
 
 ### Class Diagram
-[Camp'r UML Class Diagram (1).pdf](https://github.com/ahellam/phase-3-campr-backend/files/8508320/Camp.r.UML.Class.Diagram.1.pdf)
+<img width="1598" alt="image" src="https://user-images.githubusercontent.com/37206824/163882802-558a12d9-7207-4b80-8b36-25a42bc74878.png">
 
 
 ## Requirements
