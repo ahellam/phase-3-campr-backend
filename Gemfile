@@ -43,6 +43,10 @@ group :development do
   gem "rerun"
 end
 
+# Randomized seed data
+# https://github.com/faker-ruby/faker
+gem "faker", "2.19"
+
 # These gems will only be used when we are running tests
 group :test do
   gem "database_cleaner", "~> 2.0"
