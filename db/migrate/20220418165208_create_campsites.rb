@@ -7,6 +7,7 @@ class CreateCampsites < ActiveRecord::Migration[6.1]
       t.boolean :has_bathrooms
       t.boolean :has_rv_hookup
       t.integer :daily_price
+      t.belongs_to :campground, foreign_key: true
     end
   end
 end

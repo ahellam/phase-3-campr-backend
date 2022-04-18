@@ -10,13 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_18_165208) do
+ActiveRecord::Schema.define(version: 2022_04_18_185500) do
 
   create_table "campgrounds", force: :cascade do |t|
-    t.integer "campsite_id"
     t.string "camp_name"
     t.boolean "is_full"
-    t.index ["campsite_id"], name: "index_campgrounds_on_campsite_id"
   end
 
   create_table "campsites", force: :cascade do |t|
@@ -26,6 +24,8 @@ ActiveRecord::Schema.define(version: 2022_04_18_165208) do
     t.boolean "has_bathrooms"
     t.boolean "has_rv_hookup"
     t.integer "daily_price"
+    t.integer "campground_id"
+    t.index ["campground_id"], name: "index_campsites_on_campground_id"
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2022_04_18_165208) do
     t.string "email"
   end
 
-  add_foreign_key "campgrounds", "campsites"
+  add_foreign_key "campsites", "campgrounds"
   add_foreign_key "reservations", "campgrounds"
   add_foreign_key "reservations", "users"
 end
