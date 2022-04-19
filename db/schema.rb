@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_18_185500) do
+ActiveRecord::Schema.define(version: 2022_04_18_165208) do
 
   create_table "campgrounds", force: :cascade do |t|
     t.string "camp_name"
@@ -30,11 +30,11 @@ ActiveRecord::Schema.define(version: 2022_04_18_185500) do
 
   create_table "reservations", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "campground_id"
+    t.integer "campsite_id"
     t.datetime "start_date"
     t.datetime "end_date"
     t.integer "price_total"
-    t.index ["campground_id"], name: "index_reservations_on_campground_id"
+    t.index ["campsite_id"], name: "index_reservations_on_campsite_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
@@ -44,6 +44,6 @@ ActiveRecord::Schema.define(version: 2022_04_18_185500) do
   end
 
   add_foreign_key "campsites", "campgrounds"
-  add_foreign_key "reservations", "campgrounds"
+  add_foreign_key "reservations", "campsites"
   add_foreign_key "reservations", "users"
 end

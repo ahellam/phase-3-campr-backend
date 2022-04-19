@@ -1,4 +1,4 @@
 class Reservation < ActiveRecord::Base
     belongs_to :user
-    belongs_to :campground
+    belongs_to :campsite
 end
