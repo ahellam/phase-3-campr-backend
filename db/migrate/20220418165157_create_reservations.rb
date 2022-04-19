@@ -5,7 +5,6 @@ class CreateReservations < ActiveRecord::Migration[6.1]
       t.belongs_to :campsite, foreign_key: true
       t.datetime :start_date
       t.datetime :end_date
-      t.integer :price_total
     end
   end
 end
