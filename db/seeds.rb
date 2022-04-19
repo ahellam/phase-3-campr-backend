@@ -9,7 +9,7 @@ User.destroy_all
 
 # ***************** User story *********************
 # Create a user that user has a reservation for a campground to a specific campsite
-puts "Creating User data for a user (Marc) who has two reservations"
+puts "Creating User data for a two users (Marc and Aaron) who has one reservation for the same campsite"
 start_date = Faker::Date.between(from: '2022-04-18', to: '2023-04-18')
 end_date = Faker::Date.between(from: start_date.strftime('%Y-%m-%d'), to: '2024-04-18')
 
@@ -67,53 +67,52 @@ aarons_reservation = Reservation.create(
 
 puts "✅ Done seeding!"
 
-binding.pry
+# binding.pry
 
 
-# puts "🌱 Seeding camps..."
+puts "🌱 Seeding camps..."
 
-# puts "Creating fake users"
-# users = []
-# 10.times do
-# 	users << User.create(
-# 		name: Faker::Name.name,
-#         email: Faker::Internet.email
-# 	)
-# end
+puts "Creating fake users"
+users = []
+10.times do
+	users << User.create(
+		name: Faker::Name.name,
+        email: Faker::Internet.email
+	)
+end
 
-# puts "Creating fake Camgrounds"
-# campgrounds = []
-# 10.times do
-#     campgrounds << Campground.create(
-#         camp_name: "#{Faker::Mountain.name} campgrounds",
-#         is_full: [true, false].sample
-#         )
-#     end
+puts "Creating fake Camgrounds"
+campgrounds = []
+10.times do
+    campgrounds << Campground.create(
+        camp_name: "#{Faker::Mountain.name} campgrounds",
+        is_full: [true, false].sample
+        )
+    end
     
-# puts "Creating fake Reservations"
-# reservations = []
-# 10.times do
-#     start_date = Faker::Date.between(from: '2022-04-18', to: '2023-04-18')
-#     end_date = Faker::Date.between(from: start_date.strftime('%Y-%m-%d'), to: '2024-04-18')
-# 	reservations << Reservation.create(
-#         user_id: users.sample.id,
-#         start_date: start_date.strftime('%Y-%m-%d %H:%M'),
-#         end_date: end_date.strftime('%Y-%m-%d %H:%M'),
-#         price_total: Faker::Number.number(digits: 2)
-# 	)
-# end
+puts "Creating fake Reservations"
+reservations = []
+10.times do
+    start_date = Faker::Date.between(from: '2022-04-18', to: '2023-04-18')
+    end_date = Faker::Date.between(from: start_date.strftime('%Y-%m-%d'), to: '2024-04-18')
+	reservations << Reservation.create(
+        user_id: users.sample.id,
+        start_date: start_date.strftime('%Y-%m-%d %H:%M'),
+        end_date: end_date.strftime('%Y-%m-%d %H:%M'),
+        price_total: Faker::Number.number(digits: 2)
+	)
+end
 
     
-# puts "Creating fake Campsites"
-# 10.times do
-#     Campsite.create(
-#         site_number: Faker::Number.number(digits: 2),
-#         has_picnic_table: [true, false].sample,
-#         has_firepit: [true, false].sample,
-#         has_bathrooms: [true, false].sample,
-#         has_rv_hookup: [true, false].sample,
-#         daily_price: Faker::Number.number(digits: 2),
-#         campground_id: campgrounds.sample.id,
-#         reservation_id: reservations.sample.id
-#     )
-# end
+puts "Creating fake Campsites"
+10.times do
+    Campsite.create(
+        site_number: Faker::Number.number(digits: 2),
+        has_picnic_table: [true, false].sample,
+        has_firepit: [true, false].sample,
+        has_bathrooms: [true, false].sample,
+        has_rv_hookup: [true, false].sample,
+        daily_price: Faker::Number.number(digits: 2),
+        campground_id: campgrounds.sample.id
+    )
+end
