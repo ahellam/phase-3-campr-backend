@@ -10,7 +10,7 @@ The focus of this project is **building a Sinatra API backend** that uses
 by a separate **React frontend** that interacts with the database via the API.
 
 ## Model
-![image](https://user-images.githubusercontent.com/37206824/163882701-40f52e53-5359-4128-801d-33d18e00e20d.png)
+![image](https://user-images.githubusercontent.com/37206824/164046544-7bc6126c-fc4a-4121-b303-ec93991a8f48.png)
 
 ### Class Diagram
 <img width="1598" alt="image" src="https://user-images.githubusercontent.com/37206824/163882802-558a12d9-7207-4b80-8b36-25a42bc74878.png">
