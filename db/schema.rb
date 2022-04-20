@@ -18,12 +18,15 @@ ActiveRecord::Schema.define(version: 2022_04_18_165208) do
   end
 
   create_table "campsites", force: :cascade do |t|
+    t.string "camp_name"
     t.integer "site_number"
+    t.string "img_url"
+    t.text "description"
+    t.integer "daily_price"
     t.boolean "has_picnic_table"
     t.boolean "has_firepit"
     t.boolean "has_bathrooms"
     t.boolean "has_rv_hookup"
-    t.integer "daily_price"
     t.integer "campground_id"
     t.index ["campground_id"], name: "index_campsites_on_campground_id"
   end

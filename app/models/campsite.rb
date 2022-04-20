@@ -5,7 +5,6 @@ class Campsite < ActiveRecord::Base
     has_many :users, through: :reservations
 
     def self.filter_by_date_range(start_date, end_date)
-        return_value = []
         Campsite.all.filter do |site|
             is_available = true
             site.reservations.each do |res|

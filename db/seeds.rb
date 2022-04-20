@@ -91,7 +91,10 @@ camp1 = Campsite.create(
     has_bathrooms: [true, false].sample,
     has_rv_hookup: [true, false].sample,
     daily_price: 15,
-    campground_id: campground_1.id
+    campground_id: campground_1.id,
+    camp_name: "Hack Reactor Campgrounds",
+    description: Faker::Lorem.paragraph,
+    img_url: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
 )
 
 camp2 = Campsite.create(
@@ -101,7 +104,10 @@ camp2 = Campsite.create(
     has_bathrooms: [true, false].sample,
     has_rv_hookup: [true, false].sample,
     daily_price: 25,
-    campground_id: campground_1.id
+    campground_id: campground_1.id,
+    camp_name: "FlatIron Campgrounds",
+    description: Faker::Lorem.paragraph,
+    img_url: "https://images.unsplash.com/photo-1487730116645-74489c95b41b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2FtcGdyb3VuZHN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
 )
 
 marcs_reservation_1 = Reservation.create(
