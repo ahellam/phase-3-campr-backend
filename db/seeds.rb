@@ -33,19 +33,7 @@ User.destroy_all
 #         )
 #     end
     
-# puts "Creating fake Campsites"
-# campsites = []
-# 10.times do
-#     campsites << Campsite.create(
-#         site_number: Faker::Number.number(digits: 2),
-#         has_picnic_table: [true, false].sample,
-#         has_firepit: [true, false].sample,
-#         has_bathrooms: [true, false].sample,
-#         has_rv_hookup: [true, false].sample,
-#         daily_price: Faker::Number.number(digits: 2),
-#         campground_id: campgrounds.sample.id
-#     )
-# end
+
 
 # puts "Creating fake Reservations"
 # reservations = []
@@ -114,26 +102,67 @@ marcs_reservation_1 = Reservation.create(
         user_id: marc.id,
         campsite_id: camp1.id,
         start_date: start_date.strftime('%Y-%m-%d %H:%M'),
-        end_date: end_date.strftime('%Y-%m-%d %H:%M')
+        end_date: end_date.strftime('%Y-%m-%d %H:%M'),
+        price_total: Faker::Number.number(digits: 2)
     )
 
 marcs_reservation_2 = Reservation.create(
     user_id: marc.id,
     campsite_id: camp1.id,
     start_date: start_date.strftime('%Y-%m-%d %H:%M'),
-    end_date: end_date.strftime('%Y-%m-%d %H:%M')
+    end_date: end_date.strftime('%Y-%m-%d %H:%M'),
+    price_total: Faker::Number.number(digits: 2)
 )
 
 aarons_reservation1 = Reservation.create(
     user_id: aaron.id,
     campsite_id: camp1.id,
     start_date: start_date.strftime('%Y-%m-%d %H:%M'),
-    end_date: end_date.strftime('%Y-%m-%d %H:%M')
+    end_date: end_date.strftime('%Y-%m-%d %H:%M'),
+    price_total: Faker::Number.number(digits: 2)
 )
 
 aarons_reservation2 = Reservation.create(
     user_id: aaron.id,
     campsite_id: camp1.id,
     start_date: start_date.strftime('%Y-%m-%d %H:%M'),
-    end_date: end_date.strftime('%Y-%m-%d %H:%M')
+    end_date: end_date.strftime('%Y-%m-%d %H:%M'),
+    price_total: Faker::Number.number(digits: 2)
 )
+
+
+CAMPSITE_URLS = ["https://images.unsplash.com/photo-1487730116645-74489c95b41b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2FtcGdyb3VuZHN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
+
+"https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+
+"https://images.unsplash.com/photo-1470246973918-29a93221c455?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+
+"https://images.unsplash.com/photo-1525811902-f2342640856e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Y2FtcGdyb3VuZHN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
+
+"https://images.unsplash.com/photo-1534880606858-29b0e8a24e8d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y2FtcGdyb3VuZHN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
+
+"https://images.unsplash.com/photo-1476041800959-2f6bb412c8ce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FtcGdyb3VuZHN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
+
+"https://images.unsplash.com/photo-1603161472885-39edf23d7a3e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8Y2FtcHNpdGV8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
+
+"https://images.unsplash.com/photo-1564577160324-112d603f750f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y2FtcHNpdGV8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
+
+"https://images.unsplash.com/photo-1598417136294-7c1c4c94931f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y2FtcHNpdGV8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"]
+
+puts "Creating fake Campsites"
+25.times do
+    Campsite.create(
+        site_number: Faker::Number.number(digits: 2),
+        has_picnic_table: [true, false].sample,
+        has_firepit: [true, false].sample,
+        has_bathrooms: [true, false].sample,
+        has_rv_hookup: [true, false].sample,
+        daily_price: Faker::Number.number(digits: 2),
+        campground_id: campground_1.id,
+        camp_name: "#{Faker::Mountain.name} campgrounds",
+        description: Faker::Lorem.paragraph,
+        img_url: CAMPSITE_URLS.sample
+    )
+end
+
+binding.pry

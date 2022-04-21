@@ -15,6 +15,40 @@ class Campsite < ActiveRecord::Base
         end
     end
 
+    def self.filter_by_amenities(amenities)
+        if amenities.empty?
+            return Campsite.all
+        end
+        Campsite.all.filter do |site|
+            matches_filter = false
+            amenities.map do |a|
+                case a.first
+                when "PICNIC_TABLE"
+                    matches_filter = site.has_picnic_table
+                    if !matches_filter 
+                        break
+                    end
+                when "FIREPIT"
+                    matches_filter = site.has_firepit
+                    if !matches_filter 
+                        break
+                    end
+                when "BATHROOMS"
+                    matches_filter = site.has_bathrooms
+                    if !matches_filter 
+                        break
+                    end
+                when "RV_HOOKUP"
+                    matches_filter = site.has_rv_hookup
+                    if !matches_filter 
+                        break
+                    end
+                end
+            end
+            matches_filter
+        end
+    end
+
     def self.price_range(upper_bound, lower_bound=0)
         Campsite.all.filter do |site|
             site.daily_price.between?(lower_bound, upper_bound)

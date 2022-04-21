@@ -10,12 +10,16 @@ class ReservationsController < ApplicationController
 
 
     post "/reservations" do
+        campsite = Campsite.find(params[:campsite_id])
+        total_days = (params[:end_date].to_date - params[:start_date].to_date).to_i
+        price_total = campsite.daily_price * total_days
+
         reservation = Reservation.create(
             user_id: params[:user_id],
             campsite_id: params[:campsite_id],
             start_date: params[:start_date],
             end_date: params[:end_date],
-            price_total: params[:price_total]
+            price_total: price_total
         )
         reservation.to_json
     end
