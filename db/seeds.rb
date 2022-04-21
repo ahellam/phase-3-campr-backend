@@ -164,5 +164,3 @@ puts "Creating fake Campsites"
         img_url: CAMPSITE_URLS.sample
     )
 end
-
-binding.pry

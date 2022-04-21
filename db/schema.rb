@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(version: 2022_04_18_165208) do
   create_table "reservations", force: :cascade do |t|
     t.integer "user_id"
     t.integer "campsite_id"
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.date "start_date"
+    t.date "end_date"
     t.integer "price_total"
     t.index ["campsite_id"], name: "index_reservations_on_campsite_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
