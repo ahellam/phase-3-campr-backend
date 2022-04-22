@@ -10,6 +10,7 @@ class CreateCampsites < ActiveRecord::Migration[6.1]
       t.boolean :has_firepit
       t.boolean :has_bathrooms
       t.boolean :has_rv_hookup
+      t.boolean :liked
       t.belongs_to :campground, foreign_key: true
     end
   end

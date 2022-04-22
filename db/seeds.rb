@@ -82,7 +82,8 @@ camp1 = Campsite.create(
     campground_id: campground_1.id,
     camp_name: "Hack Reactor Campgrounds",
     description: Faker::Lorem.paragraph,
-    img_url: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+    img_url: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+    liked:[true, false].sample
 )
 
 camp2 = Campsite.create(
@@ -95,7 +96,8 @@ camp2 = Campsite.create(
     campground_id: campground_1.id,
     camp_name: "FlatIron Campgrounds",
     description: Faker::Lorem.paragraph,
-    img_url: "https://images.unsplash.com/photo-1487730116645-74489c95b41b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2FtcGdyb3VuZHN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
+    img_url: "https://images.unsplash.com/photo-1487730116645-74489c95b41b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2FtcGdyb3VuZHN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
+    liked:[true, false].sample
 )
 
 marcs_reservation_1 = Reservation.create(
@@ -103,7 +105,8 @@ marcs_reservation_1 = Reservation.create(
         campsite_id: camp1.id,
         start_date: start_date.strftime('%Y-%m-%d %H:%M'),
         end_date: end_date.strftime('%Y-%m-%d %H:%M'),
-        price_total: Faker::Number.number(digits: 2)
+        price_total: Faker::Number.number(digits: 2),
+        favorite: [true, false].sample
     )
 
 marcs_reservation_2 = Reservation.create(
@@ -111,7 +114,8 @@ marcs_reservation_2 = Reservation.create(
     campsite_id: camp1.id,
     start_date: start_date.strftime('%Y-%m-%d %H:%M'),
     end_date: end_date.strftime('%Y-%m-%d %H:%M'),
-    price_total: Faker::Number.number(digits: 2)
+    price_total: Faker::Number.number(digits: 2),
+    favorite: [true, false].sample
 )
 
 aarons_reservation1 = Reservation.create(
@@ -119,7 +123,8 @@ aarons_reservation1 = Reservation.create(
     campsite_id: camp1.id,
     start_date: start_date.strftime('%Y-%m-%d %H:%M'),
     end_date: end_date.strftime('%Y-%m-%d %H:%M'),
-    price_total: Faker::Number.number(digits: 2)
+    price_total: Faker::Number.number(digits: 2),
+    favorite: [true, false].sample
 )
 
 aarons_reservation2 = Reservation.create(
@@ -127,7 +132,8 @@ aarons_reservation2 = Reservation.create(
     campsite_id: camp1.id,
     start_date: start_date.strftime('%Y-%m-%d %H:%M'),
     end_date: end_date.strftime('%Y-%m-%d %H:%M'),
-    price_total: Faker::Number.number(digits: 2)
+    price_total: Faker::Number.number(digits: 2),
+    favorite: [true, false].sample
 )
 
 
@@ -161,6 +167,7 @@ puts "Creating fake Campsites"
         campground_id: campground_1.id,
         camp_name: "#{Faker::Mountain.name} campgrounds",
         description: Faker::Lorem.paragraph,
-        img_url: CAMPSITE_URLS.sample
+        img_url: CAMPSITE_URLS.sample,
+        liked:[true, false].sample
     )
 end

@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2022_04_18_165208) do
     t.boolean "has_firepit"
     t.boolean "has_bathrooms"
     t.boolean "has_rv_hookup"
+    t.boolean "liked"
     t.integer "campground_id"
     t.index ["campground_id"], name: "index_campsites_on_campground_id"
   end
@@ -37,6 +38,7 @@ ActiveRecord::Schema.define(version: 2022_04_18_165208) do
     t.date "start_date"
     t.date "end_date"
     t.integer "price_total"
+    t.boolean "favorite"
     t.index ["campsite_id"], name: "index_reservations_on_campsite_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end
