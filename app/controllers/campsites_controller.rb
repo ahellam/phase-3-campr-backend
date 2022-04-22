@@ -1,8 +1,13 @@
 require 'pry'
 class CampsitesController < ApplicationController
-
+    
     get "/campsites" do
-        Campsite.filter_by_amenities(params).to_json
+        all_camps = Campsite.all
+        all_camps = Campsite.filter_by_amenities(params, all_camps)
+        if (params[:filter_price])
+            all_camps = Campsite.filter_by_price(params[:filter_price], all_camps)
+        end
+        all_camps.to_json
     end
 
     get "/campsites/:id" do

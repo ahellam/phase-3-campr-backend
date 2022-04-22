@@ -15,11 +15,17 @@ class Campsite < ActiveRecord::Base
         end
     end
 
-    def self.filter_by_amenities(amenities)
-        if amenities.empty?
-            return Campsite.all
+    def self.filter_by_price(upper_bound, camps)
+        camps.filter do |site|
+            site.daily_price < upper_bound.to_i
         end
-        Campsite.all.filter do |site|
+    end
+
+    def self.filter_by_amenities(amenities, camps)
+        if amenities.empty? || amenities[:filter_price]
+            return camps
+        end
+        camps.filter do |site|
             matches_filter = false
             amenities.map do |a|
                 case a.first
